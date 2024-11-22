@@ -38,23 +38,13 @@ namespace ImageCommentsExtension_2022 {
             return null;
         }
 
-        // Регулярное выражение для поиска ссылки в тексте под курсором:
+        // RegEx to search text under cursor:
         public static readonly Regex httpUrlRegex = new Regex(@"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private Regex httpVariablePathRegex = new Regex(@"(\$\((ProjectDir|SolutionDir|ItemDir)\)[^""]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private Regex httpLocalPathRegex = new Regex(@"([a-z]\:\\[^""]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public void AugmentQuickInfoSession( IQuickInfoSession session, IList<object> qiContent, out ITrackingSpan applicableToSpan ) {
             ITrackingSpan _applicableToSpan = null;
             try {
-                //DTE2 dte = (DTE2)this.ServiceProvider.GetService(typeof(DTE));
-                //string solutionDir = System.IO.Path.GetDirectoryName(dte.Solution.FullName);
-
-                //string solutionDir = null;
-                //DTE2 dte = (DTE2)ServiceProvider.GlobalProvider.GetService(typeof(EnvDTE.DTE));
-                //if (dte == null) {
-                //    solutionDir = System.IO.Path.GetDirectoryName(dte.Solution.FullName);
-                //}
-
-
                 // Map the trigger point down to our buffer.
                 SnapshotPoint? subjectTriggerPoint = session.GetTriggerPoint(m_subjectBuffer.CurrentSnapshot);
                 if (!subjectTriggerPoint.HasValue) {
@@ -72,10 +62,6 @@ namespace ImageCommentsExtension_2022 {
                     ve = new VariableExpander(textDoc);
                 }
 
-                //look for occurrences of our QuickInfo words in the span
-                //ITextStructureNavigator navigator = m_provider.NavigatorService.GetTextStructureNavigator(m_subjectBuffer);
-                //TextExtent extent = navigator.GetExtentOfWord(subjectTriggerPoint.Value);
-                //string searchText = extent.Span.GetText();
                 ITextSnapshotLine line = null;
 
                 line = subjectTriggerPoint.Value.GetContainingLine();
@@ -108,7 +94,6 @@ namespace ImageCommentsExtension_2022 {
                 }
 
                 foreach (string str in hUrls) {
-                    //HREFPreview iqi = new HREFPreview(str);
                     MyImageControl iqi = new MyImageControl(str);
                     qiContent.Add(iqi);
                     // https://docs.microsoft.com/ru-ru/visualstudio/extensibility/walkthrough-displaying-quickinfo-tooltips?view=vs-2017

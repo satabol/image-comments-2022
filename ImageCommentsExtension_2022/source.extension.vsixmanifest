@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="ImageCommentsExtension_2022.6adaadc5-999c-4ad6-a556-b48fad8e8935" Version="1.0.61.0" Language="en-US" Publisher="Company" />
-        <DisplayName>ImageCommentsExtension_2022</DisplayName>
+        <Identity Id="ImageComment2022.6adaadc5-999c-4ad6-a556-b48fad8e8935" Version="1.0.64.0" Language="en-US" Publisher="Satabol" />
+        <DisplayName>ImageComments2022</DisplayName>
         <Description xml:space="preserve">Use images in code comments within Python, C#, C, C++, F# and VB source files. Fork of image-comments for Visual Studio 2017 ( https://github.com/TomSmartBishop/image-comments )</Description>
+        <PreviewImage>Resources\Microsoft.VisualStudio.Services.Icons.Default.jpg</PreviewImage>
     </Metadata>
     <Installation AllUsers="true">
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">

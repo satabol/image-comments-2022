@@ -35,7 +35,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ImageCommentsExtension_2022</RootNamespace>
-    <AssemblyName>ImageCommentsExtension_2022</AssemblyName>
+    <AssemblyName>ImageComments2022</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
@@ -187,6 +187,10 @@
     </Content>
     <Content Include="PasteImage\Resources\ImagePasteCommand.ico" />
     <Content Include="Resources\Command_002.png" />
+    <Content Include="Resources\Microsoft.VisualStudio.Services.Icons.Default.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="XamlAnimatedGif.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
