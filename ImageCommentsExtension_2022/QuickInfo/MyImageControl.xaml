@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="ImageCommentsExtension_2022.MyImageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+             xmlns:controls="clr-namespace:Han.Wpf.ViewportControl"
+             xmlns:local="clr-namespace:ImageCommentsExtension_2022"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type controls:Viewport}"
+           BasedOn="{StaticResource {x:Type ContentControl}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type controls:Viewport}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                            <Grid ClipToBounds="True"
+                              Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}">
+                                <Grid x:Name="PART_Container">
+                                    <ContentPresenter x:Name="PART_Presenter" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <GroupBox Header="{Binding Path=Header,UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF970000">
+        <StackPanel Orientation="Vertical">
+            <MenuItem Header="{Binding Path=Url, UpdateSourceTrigger=PropertyChanged}" Click="mi_OpenUrl_Click" x:Name="mi_OpenUrl" ToolTip="Open URL"/>
+            <MenuItem Header="{Binding Path=Url, UpdateSourceTrigger=PropertyChanged}" Click="mi_ClipboardUrl_Click" x:Name="mi_ClipboardUrl" ToolTip="Copy Url to Clipboard"/>
+            <StackPanel Orientation="Horizontal">
+                <MenuItem Header="Open Parent Folder" Click="mi_OpenParentFolderUrl_Click" x:Name="mi_OpenParentFolder" ToolTip="Open Explorer.exe on file or its folder if file not exists"/>
+                <Button x:Name="btn_OpenExternalWindow" Click="mi_ExternalWindow_Click" ToolTip="Open In External Window"/>
+            </StackPanel>
+            <TextBlock x:Name="tb_PANZOOM_Control">Mouse Scroll to Zoom, Left - Pan, Right - Reset Scale</TextBlock>
+            <controls:Viewport MinZoom="1" 
+                                   MaxZoom="50" 
+                                   ZoomSpeed="1.1"
+                                   MaxHeight="400"
+                                   MaxWidth="800"
+                                   x:Name="control_Viewport"
+                                   >
+                <Image gif:AnimationBehavior.SourceUri="/images/ajax_loader_red_32.gif" 
+                           x:Name="aImage" 
+                           KeyDown="imageForPost_KeyDown"
+                           />
+            </controls:Viewport>
+            <!--<Image x:Name="imagePreview" Stretch="None"/>-->
+            <TextBlock Text="" x:Name="tb_Comment"/>
+        </StackPanel>
+    </GroupBox>
+</UserControl>

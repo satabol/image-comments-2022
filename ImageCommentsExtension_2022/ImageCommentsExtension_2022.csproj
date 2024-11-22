@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <UseCodebase>true</UseCodebase>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>True</UpdateAssemblyInfoVersion>
+    <AssemblyInfoVersionSettings>None.None.Increment.None</AssemblyInfoVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <AssemblyFileVersionSettings>None.None.Increment.None</AssemblyFileVersionSettings>
+    <AssemblyVersionSettings>None.None.Increment.None</AssemblyVersionSettings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{8465A3B2-9CD4-4388-8AC9-57E1DC573294}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImageCommentsExtension_2022</RootNamespace>
+    <AssemblyName>ImageCommentsExtension_2022</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Additional\FileAndContentTypeDefinitions.cs" />
+    <Compile Include="Command_002.cs" />
+    <Compile Include="DataUriLoader.cs" />
+    <Compile Include="DependencyAssemblyLoader.cs" />
+    <Compile Include="ErrorTaggerProvider.cs" />
+    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="ExternalWindow.xaml.cs">
+      <DependentUpon>ExternalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageAdornmentManager.cs" />
+    <Compile Include="ImageAdornmentManagerFactory.cs" />
+    <Compile Include="ImageCommentParser.cs" />
+    <Compile Include="MyImage.cs" />
+    <Compile Include="MyLineTransformSource.cs" />
+    <Compile Include="MyLineTransformSourceProvider.cs" />
+    <Compile Include="CommandRegistration.cs" />
+    <Compile Include="PasteImage\CommandTargetBase.cs" />
+    <Compile Include="PasteImage\ImageDropHandler.cs" />
+    <Compile Include="PasteImage\ImageDropHandlerProvider.cs" />
+    <Compile Include="PasteImage\ImagePasteCommand.cs" />
+    <Compile Include="PasteImage\ImagePasteCommandTarget.cs" />
+    <Compile Include="PasteImage\ProjectHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ImageCommentsExtension_2022Package.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QuickInfo\HREFPreview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuickInfo\ImageUrlQuickInfoController.cs" />
+    <Compile Include="QuickInfo\ImageUrlQuickInfoControllerProvider.cs" />
+    <Compile Include="QuickInfo\ImageUrlQuickInfoSource.cs" />
+    <Compile Include="QuickInfo\ImageUrlQuickInfoSourceProvider.cs" />
+    <Compile Include="QuickInfo\MyImageControl.xaml.cs">
+      <DependentUpon>MyImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIMessage.cs" />
+    <Compile Include="VariableExpander.cs" />
+    <Compile Include="Viewport\Viewport.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Key.snk" />
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Language.Intellisense">
+      <Version>17.5.279</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.OLE.Interop">
+      <Version>17.5.33428.366</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.5.33428.388" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.5.4074" />
+    <PackageReference Include="XamlAnimatedGif">
+      <Version>2.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ExternalWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuickInfo\MyImageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="ImageCommentsExtension_2022Package.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+    <Content Include="images\ajax_loader_red_32.gif">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="images\application_x_mswinurl.16x16.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="images\application_x_mswinurl.ico">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="images\clipboard.128x128.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="images\clipboard.ico">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="images\external_window.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="images\folder.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="PasteImage\Resources\ImagePasteCommand.ico" />
+    <Content Include="Resources\Command_002.png" />
+    <Content Include="XamlAnimatedGif.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <InstallRoot>PublicAssemblies</InstallRoot>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PasteImage\VSPackage.resx">
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEventDependsOn>
+      $(PostBuildEventDependsOn);
+      BuildMacros;
+    </PostBuildEventDependsOn>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>rem ConsoleUtilReplaceNodeInXML.exe ..\..\source.extension.vsixmanifest //nn:PackageManifest/nn:Metadata/nn:Identity/@Version @(VersionNumber) nn http://schemas.microsoft.com/developer/vsx-schema/2011
+cd /d $(ProjectDir)
+copy /y $(TargetDir)$(ProjectName).vsix $(TargetDir)$(ProjectName).@(VersionNumber).vsix
+7z.exe a $(TargetDir)$(ProjectName).@(VersionNumber).zip $(TargetDir)$(ProjectName).vsix $(TargetDir)$(ProjectName).dll $(TargetDir)$(ProjectName).dll.config $(TargetDir)\$(ProjectName).pdb
+7z.exe a -r -xr!bin -xr!obj -xr!.git -xr!.vs $(TargetDir)$(ProjectName).@(VersionNumber).src.zip *.*
+explorer.exe "$(TargetDir)"
+exit 0</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="AfterResolveReferences">
+    <ItemGroup>
+      <EmbeddedResource Include="@(ReferenceCopyLocalPaths)" Condition="'%(ReferenceCopyLocalPaths.Extension)' == '.dll' Or '%(ReferenceCopyLocalPaths.Extension)' == '.pdb'">
+        <LogicalName>%(ReferenceCopyLocalPaths.DestinationSubDirectory)%(ReferenceCopyLocalPaths.Filename)%(ReferenceCopyLocalPaths.Extension)</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+  <Target Name="BuildMacros">
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="Targets" />
+    </GetAssemblyIdentity>
+    <ItemGroup>
+      <VersionNumber Include="@(Targets->'%(Version)')" />
+      <NuGetVersionNumber Include="$([System.Text.RegularExpressions.Regex]::Replace(&quot;%(Targets.Version)&quot;, &quot;^(.+?)(\.0+)$&quot;, &quot;$1&quot;))" />
+    </ItemGroup>
+  </Target>
+</Project>
